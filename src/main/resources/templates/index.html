@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Manager</title>
+    <link rel="stylesheet" href="css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+    </style>
+
+    <div class="footer">
+        <p>Footer</p>
+    </div>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+
+        <div class="container" align="center">
+            <h1  class="mt-5 mb-3 text-danger">User Manager </h1>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user:${users}">
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}"></td>
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td>
+                        <a th:href="@{'/edit/' + ${user.id}}" >Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a th:href="@{'/delete/'+${user.id}}">Delete</a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <a class="btn btn-danger mt-2" th:href="@{/newUser}" href="" >Add New </a>
+        </div>
+<!-- Footer -->
+<footer class="footer bg-dark  font-small special-color-dark pt-4">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+
+                <!-- Form -->
+                <form class="form-inline">
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+                           aria-label="Search">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </form>
+                <!-- Form -->
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+
+                <form class="input-group">
+                    <input type="text" class="form-control form-control-sm" placeholder="Your email"
+                           aria-label="Your email" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-sm btn-outline-info ml-1 my-0" type="button">Sign up</button>
+                    </div>
+                </form>
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#"> Adel-Chelabi.com</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+<script src="js/bootstrap.js">
+
+</script>
+</body>
+</html>
