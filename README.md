@@ -1,2 +1,2 @@
 # userManager
-CRUD application with springboot and thymleaf
+CRUD application with springboot and thymeleaf
